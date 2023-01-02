@@ -14,8 +14,15 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  config.action_mailer.default_url_options = { :host => "dev.yourhost.com" }
-  
+  # config.action_mailer.default_url_options = { :host => "dev.yourhost.com" }
+
+  # Rails.application.default_url_options = Rails.application.config.action_mailer.default_url_options
+
+  # config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
+  # config.default_url_options[:host]
+
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
@@ -37,6 +44,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' } # for absolute urls in email
+  # config.action_mailer.asset_host = "http://localhost:3000" # for image URLs in HTML email
+
+  # # Allow generating absolute urls with routing url helpers.
+  # Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+  Rails.application.routes.default_url_options[:host] = "localhost:3000"
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -51,7 +66,6 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
-
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

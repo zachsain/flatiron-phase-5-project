@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   # resources :users
 
+  Rails.application.routes.default_url_options[:host] = "localhost:3000"
+
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
