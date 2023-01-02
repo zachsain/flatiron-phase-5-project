@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    
+
     before_action :authorize, only: [:destroy]
 
     def create 
@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
   
   private
 
-    def authorize
-        return render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
-    end
+  def authorize
+    return render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
+  end
     
 end

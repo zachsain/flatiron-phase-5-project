@@ -16,11 +16,11 @@ function SignUpForm({setUser}){
         function handleSubmit(e){
             e.preventDefault();
             const formData = new FormData();
-            formData.append('user_name', username);
+            formData.append('username', username);
             formData.append('email', email);
-            formData.append('password_digest', password)
+            formData.append('password', password);
             formData.append('featured_image', image);
-            // console.log(formData)
+            console.log(formData)
             fetch('/signup', {
               method: 'POST',
               body: formData
