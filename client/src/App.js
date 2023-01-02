@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import NavBar from "./NavBar";
 import Login from './Login';
+import Logout from './Logout'
 
 function App() {
-  const [count, setCount] = useState(0);
+
   const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -32,12 +34,13 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+      <NavBar user={user} setUser={setUser} />
         <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
+          <Route path="/logout">
+            <Logout user={user} setUser={setUser} />
           </Route>
           <Route path="/">
-            <h1>Page Count: {count}</h1>
+            <h1>Hello HomePage</h1>
           </Route>
         </Switch>
       </div>
