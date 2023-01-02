@@ -10,7 +10,7 @@ function Login({setUser}){
     return (
 
         <div>
-        <h1 id='welcome'>Welcome To Your New Activity Journal </h1>
+        <h1 id='welcome'>Test </h1>
         <div className="login-form">
         {showLogin ? (
           <div>

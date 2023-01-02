@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+
     before_action :authorize, only: [:show]
 
     def create
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:username, :password, :email, :featured_image)
+        params.permit(:user_name, :password, :email, :featured_image)
     end
 end
