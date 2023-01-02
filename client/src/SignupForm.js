@@ -13,47 +13,6 @@ function SignUpForm({setUser}){
     // const [isLoading, setIsLoading] = useState(false);
     const history = useHistory();
 
-    // function handleSubmit(e) {
-    //   e.preventDefault();
-    //   setErrors([]);
-    //   setIsLoading(true);
-    //   fetch("/signup", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       username,
-    //       password,
-    //       email,
-    //     }),
-    //   }).then((r) => {
-    //     setIsLoading(false);
-    //     if (r.ok) {
-    //       history.push('/activities')
-    //       r.json().then((user) => setUser(user));
-    //     } else {
-    //       r.json().then((err) => (setErrors(err.errors), console.log(err.errors)));
-    //     }
-    //   });
-    // }
-
-    // onImageChange = event => { 
-    //     this.setState({ featured_image: event.target.files[0] });
-    //   };
-
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('title', this.state.title);
-    //     formData.append('body', this.state.body);
-    //     formData.append('featured_image', this.state.featured_image);
-    //     fetch('http://localhost:3000/posts', {
-    //       method: 'POST',
-    //       body: formData
-    //     })
-    //     .catch(error=>console.log(error));
-
         function handleSubmit(e){
             e.preventDefault();
             const formData = new FormData();
@@ -67,12 +26,10 @@ function SignUpForm({setUser}){
               body: formData
             })
             .then(r => r.json())
-            .then(data => console.log(data))
-            // .catch(error=>console.log(error));
+            .then(user => (setUser(user), console.log(user)))
         }
 
     function onImageChange(e){
-        // this.setState({ featured_image: e.target.files[0] })
         setImage(e.target.files[0]);
     }
   

@@ -6,12 +6,6 @@ function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count));
-  // }, []);
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
