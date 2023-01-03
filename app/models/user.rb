@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :stocks
     has_one_attached :featured_image
     validates :username, presence: true, uniqueness: true
 

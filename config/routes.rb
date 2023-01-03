@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :stocks
   # resources :users
 
   Rails.application.routes.default_url_options[:host] = "localhost:3000"

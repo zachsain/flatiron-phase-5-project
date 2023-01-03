@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import NavBar from "./NavBar";
-import Login from './Login';
-import Logout from './Logout'
+import NavBar from "./components/NavBar";
+import Login from './components/Login';
+import Logout from './components/Logout'
+import StockForm from "./components/StockForm";
+import Profile from "./components/Profile";
+import './App.css';
 
 function App() {
 
@@ -16,6 +19,13 @@ function App() {
       }
     });
   } , []);
+
+  // fetch("https://finnhub.io/api/v1/quote?symbol=TSLA&token=ceqa5caad3i9f7a4qjdgceqa5caad3i9f7a4qje0")
+  // .then((response) => response.json())
+  // .then(r => console.log(r))
+
+
+
 
   console.log(user)
   
@@ -32,19 +42,25 @@ function App() {
     </div>)
 
   return (
-    <BrowserRouter>
-      <div className="App">
-      <NavBar user={user} setUser={setUser} />
-        <Switch>
-          <Route path="/logout">
-            <Logout user={user} setUser={setUser} />
-          </Route>
-          <Route path="/">
-            <h1>Hello HomePage</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    // <BrowserRouter>
+    <div className="App">
+    <NavBar user={user} setUser={setUser} />
+     <Switch>
+       <Route path="/logout">
+         <Logout user={user} setUser={setUser} />
+       </Route>
+       <Route path="/profile">
+         <Profile user={user} setUser={setUser}/>
+       </Route>
+       <Route path="/stockform">
+         <StockForm user={user} setUser={setUser} />
+       </Route>
+       <Route path="/">
+         <h1>Hello HomePage</h1>
+       </Route>  
+     </Switch>
+   </div>
+    // </BrowserRouter>
   );
 }
 
