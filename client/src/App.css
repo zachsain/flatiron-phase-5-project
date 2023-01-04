@@ -11,6 +11,72 @@
   border-color: #61dafb;
 }
 
+/* PROFILE PAGE */
+.profile-photo {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* PORTFOLIO */
+
+.portfolio-container {
+  /* width: 160px; */
+  height: 50%;
+  padding: 20px;
+  border: 2px solid rgb(161, 156, 156);
+  background: rgb(255, 255, 255); 
+}
+
+.portfolio-header{
+  text-align: left;
+  padding-bottom: 4px;
+  /* padding-right: 30%; */
+}
+
+ /* PORTFOLIO CARD */
+
+.portfolio-card-container{
+  padding: 3%;
+  margin: 1%;
+  border: 2px solid rgb(250, 245, 245); ;
+}
+
+.portfolio-card-containe p{
+  text-align: left;
+}
+
+.portfolio-name{
+  text-align: left;
+}
+
+/* BUTTONS */
+.btn{
+  /* display: flex; */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 12px;
+  line-height: 20px;
+  height: 30px;
+  max-height: 30px;
+  background: #566AE5;
+  font-weight: 700;
+  border: 0;
+  border-radius: 0;
+  color: #FFFFFF;
+  transition-timing-function: ease-in-out;
+  transition-property: box-shadow;
+  transition-duration: 150ms;
+}
 /* .navbar-container{
   width: 100%;
   min-height: 100vh;

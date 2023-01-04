@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Logout from './components/Logout'
 import StockForm from "./components/StockForm";
 import Profile from "./components/Profile";
+import Posts from "./components/Posts";
 import './App.css';
 
 function App() {
@@ -42,14 +43,14 @@ function App() {
        <Route path="/logout">
          <Logout user={user} setUser={setUser} />
        </Route>
-       <Route path="/profile">
-         <Profile user={user} setUser={setUser}/>
+       <Route path="/something">
+         <h3>Maybe a search</h3>
        </Route>
-       <Route path="/stockform">
-         <StockForm user={user} setUser={setUser} />
+       <Route path="/posts">
+         <Posts user={user} setUser={setUser} />
        </Route>
        <Route path="/">
-         <h1>Hello HomePage</h1>
+          <Profile user={user} setUser={setUser}/>
        </Route>  
      </Switch>
    </div>

@@ -3,4 +3,5 @@ class PortfolioSerializer < ActiveModel::Serializer
 
   belongs_to :user
   has_many :posts
+  has_many :stocks
 end

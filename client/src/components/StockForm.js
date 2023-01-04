@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useHistory} from 'react-router-dom'
 
-function StockForm({user, setUser}){
+function StockForm({user, setUser, portfolio_id}){
 
     const [stockName, setStockName] = useState("")
     const [purchasePrice, setPurchasePrice] = useState(0)
@@ -9,17 +9,16 @@ function StockForm({user, setUser}){
     const [sharesAmount, setSharesAmount] = useState(0)
     const history = useHistory()
 
-    let formData = [{
-      'stock_name' : stockName,
-      'ticker' : ticker,
-      'purchase_price' : purchasePrice,
-      'share_amount' : sharesAmount,
-      'user_id' : user.id
-    }]
+    // let formData = [{
+    //   'stock_name' : stockName,
+    //   'ticker' : ticker,
+    //   'purchase_price' : purchasePrice,
+    //   'share_amount' : sharesAmount,
+    //   'user_id' : user.id
+    // }]
 
     function handleSubmit(e) {
       e.preventDefault();
-      console.log(formData)
       fetch("/stocks", {
         method: "POST",
         headers: {
@@ -29,8 +28,7 @@ function StockForm({user, setUser}){
           'stock_name' : stockName,
           'ticker' : ticker,
           'purchase_price' : purchasePrice,
-          'share_amount' : sharesAmount,
-          'user_id' : user.id
+          'portfolio_id' :  portfolio_id,
         }),
       }).then((r) => {
         if (r.ok) {
