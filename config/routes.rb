@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :comments
+  resources :posts
+  resources :portfolios
   resources :stocks
   # resources :users
 
