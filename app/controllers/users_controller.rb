@@ -12,10 +12,17 @@ class UsersController < ApplicationController
         end
       end
     
+    # def show
+    #   current_user = User.find(session[:user_id])
+    #   render json: current_user, include:
+    #   [:portfolios => {:only => [:id, :name, :description, :user_id, :date]}, :stocks => {:only => [:id, :ticker, :purchase_price, :share_amount, :portfolio_id]}]
+    # end 
+
     def show
-      current_user = User.find(session[:user_id])
-      render json: current_user
-    end 
+        current_user = User.find(session[:user_id])
+        render json: current_user, include: [:posts, :comments, :stocks, :portfolios => :stocks] 
+      end 
+  
 
     private
     def user_params
@@ -25,5 +32,5 @@ class UsersController < ApplicationController
     def authorize
         return render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
       end
-      
+
 end
