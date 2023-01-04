@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import Portfolio from './Portfolio'
 import StockForm from './StockForm'
+import DisplayStock from './DisplayStock'
 
 function DisplayPortfolio({
     name,
     description,
     date,
     username,
-    portfolio_id
+    portfolio_id,
+    user
 }) {
     const [addStockClick, setAddStockClick] = useState(false)
 
@@ -24,6 +26,7 @@ function DisplayPortfolio({
         {addStockClick ? (<StockForm  portfolio_id={ portfolio_id}/>) : (null)}
         <h5 className="portfolio-date">{date}</h5>
         <p className="portfolio-username"> Created By: {username} </p>
+        <DisplayStock user={user} portfolio_id={portfolio_id}/>
     </div>
   )
 }

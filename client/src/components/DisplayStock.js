@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 
 function DisplayStock({
-    stockName, 
-    ticker,
-    purchasePrice,
-    shareAmount
+    user,
+    portfolio_id
 }){
+
+    let stock = user.stocks.filter((s) => s.portfolio_id === portfolio_id)
+
+    console.log(stock)
+    
 
     const [currentPrice, setCurrentPrice] = useState(0)
     const [profitPercentage, setProfitPercentage] = useState(0)
@@ -16,16 +19,16 @@ function DisplayStock({
     //     .then((stock) => (console.log(stock.c), setCurrentAmount(stock.c)))
     //   } , []);
 
-      fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=ceqa5caad3i9f7a4qjdgceqa5caad3i9f7a4qje0`)
-        .then((r) => r.json())
-        .then((stock) => (console.log(stock.c), setCurrentPrice(stock.c)))
+    //   fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=ceqa5caad3i9f7a4qjdgceqa5caad3i9f7a4qje0`)
+    //     .then((r) => r.json())
+    //     .then((stock) => (console.log(stock.c), setCurrentPrice(stock.c)))
 
         // let price = currentPrice;
-        let totalPastPrice = purchasePrice * shareAmount;
-        let totalCurrentPrice = currentPrice * shareAmount
-        let balance = totalCurrentPrice - totalPastPrice;
-        let percentageUp = shareAmount / purchasePrice * 100
-        console.log(percentageUp)
+        // let totalPastPrice = purchasePrice * shareAmount;
+        // let totalCurrentPrice = currentPrice * shareAmount
+        // let balance = totalCurrentPrice - totalPastPrice;
+        // let percentageUp = shareAmount / purchasePrice * 100
+        // console.log(percentageUp)
 
         // let percentagePlus = (
         //             (shareAmount) / parseInt(purchasePrice)) *
@@ -48,11 +51,11 @@ function DisplayStock({
     
     return(
         <div className="stock-card-container">
-            <h3>{stockName}</h3>
-            <h4>{ticker}</h4>
-            <p>Purchase Price: {purchasePrice}</p>
-            <p>Shares Purchased: {shareAmount}</p>
-            <p> Current Price: {currentPrice}</p>
+            <h3>{stock.stock_name}</h3>
+            <h4>{stock.ticker}</h4>
+            <p>Purchase Price: {stock.purchase_price}</p>
+            <p>Shares Purchased: {stock.share_amount}</p>
+            {/* <p> Current Price: {currentPrice}</p> */}
             <p>Up / Down:</p>
         </div>
     )

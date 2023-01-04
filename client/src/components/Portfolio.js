@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import DisplayStock from "./DisplayStock";
 import PortfolioForm from "./PortfolioForm";
 import DisplayPortfolio from "./DisplayPortfolio";
@@ -6,7 +6,16 @@ import DisplayPortfolio from "./DisplayPortfolio";
 function Portfolio({user, setUser}){
 
     const [addPorfolioClick, setAddPortfolioClick] = useState(false)
+    const [portfolios, setPortfolios] = useState([])
 
+    useEffect(() => {
+        fetch("/portfolios").then((r) => {
+          if (r.ok) {
+            r.json().then((p) => setPortfolios(p));
+          }
+        });
+      } , []);
+    
     // let stocks = user.stocks.map((stock) => {
     //    return <DisplayStock 
     //         key={stock.id}
@@ -21,7 +30,6 @@ function Portfolio({user, setUser}){
        setAddPortfolioClick(!addPorfolioClick)
     }
 
-    console.log(user.portfolio)
 
     let portfolio = user.portfolios.map((p) => {
         return <DisplayPortfolio
@@ -31,6 +39,7 @@ function Portfolio({user, setUser}){
                 date={p.date}
                 username={user.username}
                 portfolio_id={p.id}
+                user={user}
         />
     })
 
