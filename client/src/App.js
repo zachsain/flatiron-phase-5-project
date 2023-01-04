@@ -20,13 +20,6 @@ function App() {
     });
   } , []);
 
-  // fetch("https://finnhub.io/api/v1/quote?symbol=TSLA&token=ceqa5caad3i9f7a4qjdgceqa5caad3i9f7a4qje0")
-  // .then((response) => response.json())
-  // .then(r => console.log(r))
-
-
-
-
   console.log(user)
   
   if (!user) return (

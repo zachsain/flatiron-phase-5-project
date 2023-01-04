@@ -10,8 +10,6 @@ function Portfolio({user, setUser}){
             ticker={stock.ticker}
             purchasePrice={stock.purchase_price}
             shareAmount={stock.share_amount}
-
-
             />
     })
 
