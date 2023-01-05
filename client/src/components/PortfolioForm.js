@@ -29,14 +29,18 @@ function PortfolioForm({
           }).then((r) => {
             if (r.ok) {
               r.json().then((p) =>{
-                console.log(p)
-                setUser(user)
+                let newPortfolio = p
+                let userCopy = {...user}
+                userCopy.portfolios.push(newPortfolio)
+                console.log(userCopy)
+                setUser(userCopy)
               })
             } else {
               r.json().then((err) => console.log(err.errors));
             }
           });
     }
+
   return (
     <div className="portfolio-form-container">
          <form onSubmit={handleSubmit}>

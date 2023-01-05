@@ -6,25 +6,6 @@ import DisplayPortfolio from "./DisplayPortfolio";
 function Portfolio({user, setUser}){
 
     const [addPorfolioClick, setAddPortfolioClick] = useState(false)
-    const [portfolios, setPortfolios] = useState([])
-
-    useEffect(() => {
-        fetch("/portfolios").then((r) => {
-          if (r.ok) {
-            r.json().then((p) => setPortfolios(p));
-          }
-        });
-      } , []);
-    
-    let stocks = user.stocks.map((stock) => {
-       return <DisplayStock 
-            key={stock.id}
-            stockName={stock.stock_name}
-            ticker={stock.ticker}
-            purchasePrice={stock.purchase_price}
-            shareAmount={stock.share_amount}
-            />
-    })
 
     function handleNewClick(e){
        setAddPortfolioClick(!addPorfolioClick)
@@ -39,6 +20,7 @@ function Portfolio({user, setUser}){
                 date={p.date}
                 username={user.username}
                 portfolio_id={p.id}
+                setUser={setUser}
                 user={user}
         />
     })
