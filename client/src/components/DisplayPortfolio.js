@@ -20,19 +20,19 @@ function DisplayPortfolio({
     }
 
     function handleDelete(e){
-      e.preventDefault()
-      console.log(portfolio_id)
-        let filteredPortfolios = userCopy.portfolios.filter((p) => p.id !== portfolio_id)
-        userCopy.portfolios = filteredPortfolios       
-        fetch(`/portfolios/${portfolio_id}`, {
-            method: "DELETE",
-          })
-            .then((r) => {
-              if (r.ok) {
-                setUser({...userCopy});
-              }
-            })
-            .catch((err) => console.log(err))
+      // e.preventDefault()
+      // console.log(portfolio_id)
+      //   let filteredPortfolios = userCopy.portfolios.filter((p) => p.id !== portfolio_id)
+      //   userCopy.portfolios = filteredPortfolios       
+      //   fetch(`/portfolios/${portfolio_id}`, {
+      //       method: "DELETE",
+      //     })
+      //       .then((r) => {
+      //         if (r.ok) {
+      //           setUser({...userCopy});
+      //         }
+      //       })
+      //       .catch((err) => console.log(err))
            }
 
   return (

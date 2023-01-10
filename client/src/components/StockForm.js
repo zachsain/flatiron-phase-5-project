@@ -9,13 +9,13 @@ function StockForm({user, setUser, portfolio_id}){
     const [sharesAmount, setSharesAmount] = useState(0)
     const history = useHistory()
 
-    // let formData = [{
-    //   'stock_name' : stockName,
-    //   'ticker' : ticker,
-    //   'purchase_price' : purchasePrice,
-    //   'share_amount' : sharesAmount,
-    //   'user_id' : user.id
-    // }]
+  //   let stocks;
+
+  //   let portfolio = user.portfolios.filter((p) => p.id === portfolio_id)
+  //   portfolio.map((p) => {
+  //     return stocks = p.stocks
+  // })
+
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -32,9 +32,13 @@ function StockForm({user, setUser, portfolio_id}){
         }),
       }).then((r) => {
         if (r.ok) {
-          history.push('/profile')
-          r.json().then((newStock) => {
-            console.log(newStock)
+          r.json().then((s) => {
+            console.log(s)
+            // let newStock = s
+            //     let userCopy = {...user}
+            //     userCopy.portfolios.push(newPortfolio)
+                // console.log(userCopy)
+                // setUser(user)
           });
         } else {
           r.json().then((err) => console.log(err.errors));

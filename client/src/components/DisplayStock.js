@@ -11,13 +11,11 @@ function DisplayStock({
     const [profitPercentage, setProfitPercentage] = useState(0)
     const [portfolioStocks, setPortfolioStocks] = useState([])
 
-    let name;
     let stocks;
-    let date;
-    let description
+  
 
     let portfolio = user.portfolios.filter((p) => p.id === portfolio_id)
-    console.log(portfolio)
+    
     let mapPortfolio = portfolio.map((p) => {
         return stocks = p.stocks
     })
@@ -36,7 +34,7 @@ function DisplayStock({
     
     return(
         <div className="display-stock-card-container">
-           {stockCard}
+           {stocks}
         </div>
     )
 }

@@ -29,11 +29,12 @@ function PortfolioForm({
           }).then((r) => {
             if (r.ok) {
               r.json().then((p) =>{
-                let newPortfolio = p
-                let userCopy = {...user}
-                userCopy.portfolios.push(newPortfolio)
-                console.log(userCopy)
-                setUser(userCopy)
+                console.log(p)
+                // let newPortfolio = p
+                // let userCopy = {...user}
+                // userCopy.portfolios.push(newPortfolio)
+                // console.log(userCopy)
+                // setUser(userCopy)
               })
             } else {
               r.json().then((err) => console.log(err.errors));

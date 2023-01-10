@@ -19,6 +19,7 @@ function StockCard({
         let totalCurrentPrice = currentPrice * shareAmount
         let balance = totalCurrentPrice - totalPastPrice;
         let percentageUp = shareAmount / purchasePrice * 100
+        
         console.log(percentageUp)
 
         let percentagePlus = (
